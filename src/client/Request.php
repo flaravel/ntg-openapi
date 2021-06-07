@@ -2,7 +2,6 @@
 
 namespace Client;
 
-use GuzzleHttp\BodySummarizer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
@@ -103,16 +102,9 @@ class Request
             return new Response($e->getMessage(), $e->getCode() ?: 599);
         }
 
-        $statusCode = $response->getStatusCode();
-        if ($statusCode != 200){
-            $contents = (new BodySummarizer())->summarize($response);
-        } else {
-            $contents = (string) $response->getBody()->getContents();
-        }
+        $contents = (string) $response->getBody()->getContents();
         $response->getBody()->close();
-        return new Response($contents, $statusCode);
-
-
+        return new Response($contents, $response->getStatusCode());
     }
 
     private function defaultHeader(): array
