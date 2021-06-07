@@ -1,0 +1,18 @@
+{
+    "name": "yingedev/ntg-openapi",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "authors": [
+        {
+            "name": "atai",
+            "email": "atai@yinge.tech"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Client\\": "src/client"
+        }
+    }
+}
