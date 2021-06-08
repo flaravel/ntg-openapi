@@ -116,7 +116,7 @@ class Request
             'NTGW-Sign-Nonce' => $this->nonce(),
             'NTGW-Sign-Version' => '1.0',
             'NTGW-Sign-Method' => 'hmac_sha1',
-            'NTGW-Sign-Date' => strtotime('r'),
+            'NTGW-Sign-Date' => date('r'),
         ];
     }
 
