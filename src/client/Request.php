@@ -34,8 +34,8 @@ class Request
         }
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
-        $this->appName = $appName;
-        $this->endpoint = $endpoint;
+        $this->appName = strtolower($appName);
+        $this->endpoint = ltrim($endpoint, '/');
     }
 
     public function setUrl($url)
@@ -110,8 +110,8 @@ class Request
     private function defaultHeader(): array
     {
         return [
-            'App' => 'qpm',
-            'Endpoint' => '/api/qiniu/tokens',
+            'App' => $this->appName,
+            'Endpoint' => $this->endpoint,
             'Content-Type' => 'application/json',
             'NTGW-Sign-Nonce' => $this->nonce(),
             'NTGW-Sign-Version' => '1.0',
