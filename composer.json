@@ -1,8 +1,8 @@
 {
-    "name": "yingedev/ntg-openapi",
+    "name": "xxxxx/ntg-openapi",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^7.0.1"
     },
     "authors": [
         {
